@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ultimate Study Mode</title>
+    
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    
+    <style>
+        /* CRITICAL BODY OVERRIDES */
+        body {
+            font-family: 'Poppins', sans-serif;
+            min-height: 100vh;
+            /* Study gradient background */
+            background: linear-gradient(-45deg, #2b5876, #4e4376, #36d1dc, #5b86e5); 
+            background-size: 400% 400%;
+            animation: gradientFlow 15s ease infinite;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 50px 20px;
+            color: #fff;
+            margin: 0;
+            /* CRITICAL: Ensure visibility */
+            visibility: visible !important;
+            opacity: 1 !important;
+        }
+        @keyframes gradientFlow {
+            0% {background-position: 0% 50%;}
+            50% {background-position: 100% 50%;}
+            100% {background-position: 0% 50%;}
+        }
+
+        /* 🎯 STUDY MODE MAIN RESULT CARD CONTAINER */
+        /* This is the large box wrapping the explanation/media */
+        .result-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(5px);
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            margin-bottom: 20px;
+            width: 100%; 
+            max-width: 800px; 
+            height: auto !important;
+            max-height: none !important;
+            overflow: visible !important;
+        }
+
+        /* Explanation Text Scroll Fix */
+        .result-card p.whitespace-pre-wrap {
+            max-height: 400px; 
+            overflow-y: auto; 
+            white-space: pre-wrap !important; 
+            line-height: 1.6; 
+            font-size: 1rem;
+            padding-right: 15px; 
+            color: #f0f0f0; /* Ensure text color is set */
+        }
+
+        /* Horizontal Scrolling Layout for Media */
+        .image-scroll, .video-scroll {
+            display: flex !important;
+            flex-direction: row !important; 
+            overflow-x: auto !important; 
+            overflow-y: hidden !important;
+            width: 100% !important; 
+            padding: 10px 0;
+            gap: 15px !important; 
+        }
+
+        /* Style for the individual media boxes */
+        .image-scroll a.image-card-link,
+        .video-scroll .video-card { 
+            background: rgba(0, 0, 0, 0.2); 
+            padding: 10px; 
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+            width: 250px !important; 
+            flex-shrink: 0; 
+            max-width: 250px !important;
+            margin: 5px 0 !important;
+        }
+
+        /* Image and Video sizing */
+        .image-scroll a.image-card-link img,
+        .video-scroll iframe {
+            width: 100% !important;
+            height: 150px !important; 
+            border-radius: 8px;
+            object-fit: cover; 
+        }
+        .whitespace-pre-wrap { white-space: pre-wrap; } 
+    </style>
+</head>
+<body>
+    
+    <h1 id="studyHeading" style="font-size: 2.5rem; margin-top: 1.5rem; margin-bottom: 1rem; color: white !important;">
+        <span style="font-size: 1.2em;">📚</span> Ultimate Study Mode
+    </h1>
+    
+    <div style="display: flex; gap: 10px; width: 100%; max-width: 500px; margin-bottom: 20px;">
+        <input type="text" id="query" placeholder="Enter topic to study..." 
+               style="flex-grow: 1; padding: 12px; border-radius: 8px; border: 2px solid #5b86e5; color: #333; background-color: white !important; font-size: 1.1rem;">
+        
+        <button id="searchBtn" 
+                style="background: #007bff !important; color: white !important; padding: 10px 20px; border-radius: 8px; border: none; cursor: pointer; font-size: 1.1rem; transition: background 0.3s;">
+            Generate Study Guide
+        </button>
+    </div>
+
+    <div id="status" style="color: #ffcc00; margin-bottom: 10px;"></div>
+
+    <div id="results" style="width: 100%; display: flex; flex-direction: column; align-items: center;">
+        </div>
+
+    <script src="{{ url_for('static', filename='study.js') }}"></script>
+</body>
+</html>

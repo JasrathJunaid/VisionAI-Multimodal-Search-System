@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Welcome - Multimodal Search</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/static/style.css"> 
+<style>
+/* Base styles from original snippet, ensuring it uses Poppins and the animated background */
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    /* Animated Gradient Background from style.css/inline styles */
+    background: linear-gradient(-45deg, #6a11cb, #2575fc, #ff6a00, #ff00c8);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+    color: white;
+    text-align: center;
+    transition: all 0.5s ease;
+}
+
+@keyframes gradientBG {
+    0% {background-position: 0% 50%;}
+    50% {background-position: 100% 50%;}
+    100% {background-position: 0% 50%;}
+}
+
+h1 {
+    font-size: 3rem;
+    margin-bottom: 60px;
+    text-shadow: 0 0 30px rgba(0,0,0,0.4);
+}
+
+.mode-container {
+    display: flex;
+    gap: 40px; /* Separating the buttons */
+}
+
+.mode-button {
+    padding: 20px 45px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    color: white;
+    transition: transform 0.3s, box-shadow 0.3s;
+    text-decoration: none; /* Make it look like a button */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#study-btn {
+    background: linear-gradient(90deg, #7928ca, #ff0080);
+    box-shadow: 0 8px 20px rgba(121, 40, 202, 0.5);
+}
+
+#study-btn:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 25px rgba(121, 40, 202, 0.7);
+}
+
+#entertain-btn {
+    background: linear-gradient(90deg, #ff6a00, #ff00c8);
+    box-shadow: 0 8px 20px rgba(255, 106, 0, 0.5);
+}
+
+#entertain-btn:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 25px rgba(255, 106, 0, 0.7);
+}
+
+.icon {
+    font-size: 3rem;
+    margin-bottom: 10px;
+}
+</style>
+</head>
+<body>
+    <h1>Welcome to Vision AI Multimodal Search</h1>
+    <p style="font-size:1.5rem; margin-bottom: 80px; text-shadow: 0 0 15px rgba(0,0,0,0.3);">Select your mode:</p>
+    
+    <div class="mode-container">
+        <a href="/mode/study" class="mode-button" id="study-btn">
+            <span class="icon">📚</span>
+            Study Mode
+        </a>
+        <a href="/mode/entertainment" class="mode-button" id="entertain-btn">
+            <span class="icon">🎉</span>
+            Entertainment Mode
+        </a>
+    </div>
+</body>
+</html>
