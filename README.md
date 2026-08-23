@@ -1,4 +1,3 @@
-# VisionAI-Multimodal-Search-System
 # VisionAI – Multimodal Search System
 
 Developed a multimodal AI search system designed to retrieve and explore visual and textual content through semantic similarity rather than traditional keyword-based search. The system uses CLIP-based embeddings to represent content in a shared vector space and Qdrant for efficient vector storage, indexing, and similarity-based retrieval.
